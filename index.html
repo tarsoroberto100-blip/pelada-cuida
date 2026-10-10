@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Súmula - Pelada do Amor</title>
+    <style>
+        body { font-family: sans-serif; background: #e0e0e0; padding: 20px; }
+        .card-sumula { background: white; padding: 25px; border-radius: 10px; max-width: 400px; margin: auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .input-box { margin-bottom: 15px; }
+        input { width: 100%; padding: 10px; margin-top: 5px; box-sizing: border-box; }
+        
+        .btn-salvar { background: #50dc0a; color: #c8ee0b; border: 1px solid #ccc; padding: 10px; width: 100%; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <div class="card-sumula">
+        <h2>Súmula - Pelada do Amor</h2>
+        <p><strong>Registro Histórico:</strong> 19/03/2025</p>
+
+        <form id="formEstatisticas">
+            <div class="input-box">
+                <label>Craque da Partida:</label>
+                <input type="text" value="Bobby Charlton" readonly>
+            </div>
+            <div class="input-box">
+                <label>Gols Marcados:</label>
+                <input type="number" id="gols" value="0" min="0">
+            </div>
+            <div class="input-box">
+                <label>Assistências:</label>
+                <input type="number" id="assistencias" value="0" min="0">
+            </div>
+
+            <button type="button" class="btn-salvar" onclick="processarEstatisticas()">Salvar Atuação</button>
+        </form>
+
+        <h3 id="resultado"></h3>
+    </div>
+
+    <script>
+        function calcularPontuacao(gols, assistencias) {
+            let total = gols + assistencias; 
+            return total;
+        }
+
+        function processarEstatisticas() {
+            let g = parseInt(document.getElementById('gols').value);
+            let a = parseInt(document.getElementById('assistencias').value);
+            
+            let pontuacao = calcularPontuacao(g, a);
+            document.getElementById('resultado').innerText = "Pontuação Total: " + pontuacao;
+        }
+    </script>
+</body>
+</html>
